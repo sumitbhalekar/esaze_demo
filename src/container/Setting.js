@@ -10,42 +10,29 @@ import Swipeable from 'react-native-gesture-handler/Swipeable';
 export const Setting = () => {
   const rightActions = () => {
     return (
-      <View
-        style={{
-          flex: 1,
-          height: 40,
-          marginVertical: 10,
-          backgroundColor: 'black',
-          justifyContent: 'center',
-          borderColor: 'white',
-          borderWidth: 1,
-        }}>
-        <Text
-          style={{
-            color: 'blue',
-            paddingHorizontal: 10,
-            fontWeight: '600',
-          }}>
-          Swipe me to continue
-        </Text>
+      <View style={styles.sliderView}>
+        <Text style={styles.sliderText}>Swipe me to continue</Text>
       </View>
     );
   };
 
   return (
-    <SafeAreaView style={{backgroundColor: 'black', flex: 1}}>
+    <SafeAreaView style={styles.containerStyle}>
       <View style={{alignSelf: 'center'}}>
-        <TouchableOpacity style={styles.firstButton}>
+        <TouchableOpacity style={[styles.firstButton]}>
           <Text style={styles.textStyleSecond}>Press me</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.secondButton}>
+        <TouchableOpacity
+          style={[styles.firstButton, {backgroundColor: 'gray'}]}>
           <Text style={styles.textStyle}>Press me</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.thirdButton}>
+        <TouchableOpacity
+          style={[styles.firstButton, {backgroundColor: '#2E9AFE'}]}>
           <Text style={styles.textStyle}>Press me</Text>
         </TouchableOpacity>
         <Swipeable renderRightActions={rightActions}>
-          <TouchableOpacity style={styles.lastButton}>
+          <TouchableOpacity
+            style={[styles.firstButton, {backgroundColor: '#2E9AFE'}]}>
             <Text style={styles.textStyleSecond}>Press me</Text>
           </TouchableOpacity>
         </Swipeable>
@@ -55,36 +42,13 @@ export const Setting = () => {
 };
 
 export const styles = StyleSheet.create({
+  containerStyle: {
+    backgroundColor: 'black',
+    flex: 1,
+  },
   firstButton: {
     width: 250,
     height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 3,
-    marginVertical: 10,
-  },
-  secondButton: {
-    width: 250,
-    height: 40,
-    backgroundColor: 'gray',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 3,
-    marginVertical: 10,
-  },
-  thirdButton: {
-    width: 250,
-    height: 40,
-    backgroundColor: '#2E9AFE',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 3,
-    marginVertical: 10,
-  },
-  lastButton: {
-    width: 250,
-    height: 40,
-    backgroundColor: '#2E9AFE',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 3,
@@ -95,5 +59,19 @@ export const styles = StyleSheet.create({
   },
   textStyleSecond: {
     color: 'white',
+  },
+  sliderView: {
+    flex: 1,
+    height: 40,
+    marginVertical: 10,
+    backgroundColor: 'black',
+    justifyContent: 'center',
+    borderColor: 'white',
+    borderWidth: 1,
+  },
+  sliderText: {
+    color: 'blue',
+    paddingHorizontal: 10,
+    fontWeight: '600',
   },
 });
