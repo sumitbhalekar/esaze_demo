@@ -1,11 +1,6 @@
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
+import {Button} from '../components/Button';
 
 export const Setting = () => {
   const rightActions = () => {
@@ -19,22 +14,27 @@ export const Setting = () => {
   return (
     <SafeAreaView style={styles.containerStyle}>
       <View style={{alignSelf: 'center'}}>
-        <TouchableOpacity style={[styles.firstButton]}>
-          <Text style={styles.textStyleSecond}>Press me</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.firstButton, {backgroundColor: 'gray'}]}>
-          <Text style={styles.textStyle}>Press me</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.firstButton, {backgroundColor: '#2E9AFE'}]}>
-          <Text style={styles.textStyle}>Press me</Text>
-        </TouchableOpacity>
+        <Button
+          style={styles.firstButton}
+          buttonText="Press me"
+          textStyle={styles.textStyleSecond}
+        />
+        <Button
+          style={[styles.firstButton, {backgroundColor: 'gray'}]}
+          buttonText="Press me"
+          textStyle={styles.textStyle}
+        />
+        <Button
+          style={[styles.firstButton, {backgroundColor: '#2E9AFE'}]}
+          buttonText="Press me"
+          textStyle={styles.textStyle}
+        />
         <Swipeable renderRightActions={rightActions}>
-          <TouchableOpacity
-            style={[styles.firstButton, {backgroundColor: '#2E9AFE'}]}>
-            <Text style={styles.textStyleSecond}>Press me</Text>
-          </TouchableOpacity>
+          <Button
+            style={[styles.firstButton, {backgroundColor: '#2E9AFE'}]}
+            buttonText="Press me"
+            textStyle={styles.textStyleSecond}
+          />
         </Swipeable>
       </View>
     </SafeAreaView>
