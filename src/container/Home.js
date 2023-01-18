@@ -1,11 +1,17 @@
 import {useState} from 'react';
-import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
+import {
+  NativeModules,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {Button} from '../components/Button';
 import {TextInputField} from '../components/TextInputComp';
 import {USER_DATA_ADDED} from './redux/action_types';
 
 export const Home = props => {
+  const {NoticeModule} = NativeModules;
   const dispatch = useDispatch();
 
   const [localUserData, setLocalUserData] = useState({
@@ -16,6 +22,7 @@ export const Home = props => {
   });
 
   const onClickSubmit = () => {
+    NoticeModule.noticeMessageText('testName', 'testLocation');
     dispatch({type: USER_DATA_ADDED, payload: localUserData});
     props.navigation.navigate('Profile');
   };

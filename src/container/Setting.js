@@ -13,25 +13,25 @@ export const Setting = () => {
 
   return (
     <SafeAreaView style={styles.containerStyle}>
-      <View style={{alignSelf: 'center'}}>
+      <View style={styles.innerContainer}>
         <Button
           style={styles.firstButton}
           buttonText="Press me"
           textStyle={styles.textStyleSecond}
         />
         <Button
-          style={[styles.firstButton, {backgroundColor: 'gray'}]}
+          style={[styles.firstButton, styles.grayColor]}
           buttonText="Press me"
           textStyle={styles.textStyle}
         />
         <Button
-          style={[styles.firstButton, {backgroundColor: '#2E9AFE'}]}
+          style={[styles.firstButton, styles.secondButtonStyle]}
           buttonText="Press me"
           textStyle={styles.textStyle}
         />
         <Swipeable renderRightActions={rightActions}>
           <Button
-            style={[styles.firstButton, {backgroundColor: '#2E9AFE'}]}
+            style={[styles.firstButton, styles.secondButtonStyle]}
             buttonText="Press me"
             textStyle={styles.textStyleSecond}
           />
@@ -45,6 +45,15 @@ export const styles = StyleSheet.create({
   containerStyle: {
     backgroundColor: 'black',
     flex: 1,
+  },
+  innerContainer: {
+    alignSelf: 'center',
+  },
+  grayColor: {
+    backgroundColor: 'gray',
+  },
+  secondButtonStyle: {
+    backgroundColor: '#2E9AFE',
   },
   firstButton: {
     width: 250,
